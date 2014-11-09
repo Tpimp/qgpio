@@ -6,6 +6,7 @@
 #include <QDebug>
 #include <QTimer>
 #include <QtQml>
+#include "qsoftpwm.h"
 int QGpioWatcher::THREAD_SLEEP_TIME = 3000;
 
 int main(int argc, char *argv[])

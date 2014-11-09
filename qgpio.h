@@ -5,6 +5,7 @@
 #include <QFile>
 #include <QList>
 #include <QDebug>
+
 class QGpio : public QObject
 {
     Q_OBJECT
@@ -54,7 +55,7 @@ public:
 
     static bool exportPin(QString pin_number);
     static bool unexportPin(QString pin_number);
-    static bool     pinExported(QString pin_number);
+    static bool pinExported(QString pin_number);
     ~QGpio();
     // In case sysfs is defined elsewhere
     static const char * GPIO_PATH;

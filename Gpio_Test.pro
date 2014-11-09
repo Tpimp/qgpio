@@ -8,7 +8,8 @@ QML_IMPORT_PATH =
 
 # The .cpp file which was generated for your project. Feel free to hack it.
 SOURCES += main.cpp \
-    qgpio.cpp
+    qgpio.cpp \
+    qsoftpwm.cpp
 
 # Installation path
 # target.path =
@@ -19,6 +20,7 @@ qtcAddDeployment()
 
 HEADERS += \
     qgpiowatcher.h \
-    qgpio.h
+    qgpio.h \
+    qsoftpwm.h
 
 CONFIG += C++11
