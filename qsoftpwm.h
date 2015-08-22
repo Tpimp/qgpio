@@ -23,11 +23,18 @@ public:
     bool    setPeriod(quint32 new_period);
 
 
-    quint32 pwmDutyCycle();
+    quint32 pwmDutyCycle()
+    {
+        return mDutyCycle;
+    }
+
     bool    setDutyCycle(quint32 duty_cycle);
 
-    int     pinNumber();
-    bool    setPinNumber(int pin_number);
+    int     pinNumber()
+    {
+        return mPinNumber;
+    }
+   bool    setPinNumber(int pin_number);
 
     // In case sys pwm is defined elsewhere
     static const char * PWM_PATH;
