@@ -1,7 +1,7 @@
 import QtQuick 2.1
 import QtQuick.Controls 1.1
 
-import com.embedded.io 1.0
+import Gpio 1.0
 
 Rectangle {
     id: rect

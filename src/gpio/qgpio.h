@@ -80,8 +80,6 @@ private:
     QString           mPinNumber;
     bool              mActiveLow;
 
-
-
     // The interface described through sysfs is actually a device node (on linux)
     // So a file handle can be kept open
     QFile            mValueFile;

@@ -30,3 +30,18 @@ Makefile*
 #QtCtreator Qml
 *.qmlproject.user
 *.qmlproject.user.*
+
+include
+lib
+mkspecs
+qml
+
+
+*.so*
+*.prl
+*.pc
+*.cmake
+
+*.pch
+*.version
+*.version.in
