@@ -1,0 +1,3 @@
+module SoftPwm
+plugin softpwmplugin
+classname SoftPwmPlugin

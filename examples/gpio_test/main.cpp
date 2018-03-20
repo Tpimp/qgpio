@@ -1,30 +1,27 @@
 #include <QtGui/QGuiApplication>
-#include <QQmlContext>
-#include "qtquick2applicationviewer.h"
-#include "qgpiowatcher.h"
-#include "qgpio.h"
-#include <QDebug>
 #include <QTimer>
+#include <QDebug>
 #include <QtQml>
-#include "qsoftpwm.h"
-int QGpioWatcher::THREAD_SLEEP_TIME = 3000;
+
+#include <qgpiowatcher.h>
+#include <qgpio.h>
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
 
-    QtQuick2ApplicationViewer viewer;
-    qmlRegisterType<QGpio>("com.embedded.io",1,0,"QGpio");
+    QQmlApplicationEngine engine;
 
     QList<int> inPins;
     inPins << 204 << 199; // CAREFUL TO SUPPLY VALID Input Capable PINS
 
 
     QGpioWatcher gpio_thread;
+    gpio_thread.setThreadSleepTime(3000);
     gpio_thread.start();
 
 
-    QQmlContext * root_c(viewer.rootContext());
+    QQmlContext * root_c(engine.rootContext());
     foreach(const int & pin_number, inPins)
     {
         QGpio * pin_created(gpio_thread.exportPin(pin_number,QGpio::In,QGpio::Both,&app));
@@ -47,9 +44,11 @@ int main(int argc, char *argv[])
     // we must cast a list
     root_c->setContextProperty("GpioList",QVariant::fromValue(gpio_thread.exportedObjects()));
     root_c->setContextProperty("GpioWatcher",&gpio_thread);
-    viewer.setMainQmlFile(QStringLiteral("qml/Gpio_Test/main.qml"));
-    viewer.showExpanded();
+
     QObject::connect(&app, &QGuiApplication::aboutToQuit, &gpio_thread, &QThread::terminate);
+
+    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
+
     int ret_val(app.exec());
     return ret_val;
 }
