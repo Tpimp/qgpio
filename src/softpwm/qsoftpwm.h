@@ -3,7 +3,9 @@
 
 #include <QObject>
 
-class QSoftPwm : public QObject
+#include "qtsoftpwm_global.h"
+
+class Q_QTSOFTPWM_EXPORT QSoftPwm : public QObject
 {
     Q_OBJECT
 

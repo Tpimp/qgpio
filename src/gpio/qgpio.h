@@ -6,7 +6,9 @@
 #include <QList>
 #include <QDebug>
 
-class QGpio : public QObject
+#include "qtgpio_global.h"
+
+class Q_QTGPIO_EXPORT QGpio : public QObject
 {
     Q_OBJECT
     Q_ENUMS(EdgeType)

@@ -12,7 +12,7 @@
 #include <QList>
 
 
-class QGpioWatcher : public QThread
+class Q_QTGPIO_EXPORT QGpioWatcher : public QThread
 {
     Q_OBJECT
     void run() Q_DECL_OVERRIDE
