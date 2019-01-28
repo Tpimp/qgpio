@@ -4,11 +4,15 @@ gpio.subdir = gpio
 gpio.target = gpio-lib
 SUBDIRS += gpio
 
-softpwm.subdir = softpwm
-softpwm.target = softpwm-lib
-SUBDIRS += softpwm
+softpwm {
+  softpwm.subdir = softpwm
+  softpwm.target = softpwm-lib
+  SUBDIRS += softpwm
+}
 
-plugins.subdir = imports
-plugins.depends = gpio-lib
-plugins.target = plugins-lib
-SUBDIRS += plugins
+qml-plugin {
+  plugins.subdir = imports
+  plugins.depends = gpio-lib
+  plugins.target = plugins-lib
+  SUBDIRS += plugins
+}
